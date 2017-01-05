@@ -1,5 +1,5 @@
 # coding: utf-8
-
+from __future__ import unicode_literals
 from django import VERSION as DJANGO_VERSION
 from django import template
 from django.contrib.admin.templatetags.admin_static import static
@@ -76,7 +76,7 @@ def string_to_dict(string):
 
     kwargs = {}
     if string:
-        string = str(string)
+        string = "%s" % string
         if ',' not in string:
             # ensure at least one ','
             string += ','
@@ -97,7 +97,7 @@ def string_to_list(string):
 
     args = []
     if string:
-        string = str(string)
+        string = "%s" % string
         if ',' not in string:
             # ensure at least one ','
             string += ','
