@@ -227,7 +227,7 @@ class FileObject():
         self.mimetype = mimetypes.guess_type(self.filename)
 
     def __str__(self):
-        return smart_str(self.path)
+        return "%s" % self.path
 
     @property
     def name(self):
