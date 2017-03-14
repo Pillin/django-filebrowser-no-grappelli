@@ -33,9 +33,9 @@ def transpose_image(request, fileobjects, operation):
         tmpfile = File(tempfile.NamedTemporaryFile())
 
         try:
-            new_image.save(tmpfile, format=Image.EXTENSION[ext], quality=VERSION_QUALITY, optimize=(os.path.splitext(fileobject.path)[1].lower() != '.gif'))
+            new_image.save(tmpfile, format=Image.EXTENSION[ext].lower(), quality=VERSION_QUALITY, optimize=(os.path.splitext(fileobject.path)[1].lower() != '.gif'))
         except IOError:
-            new_image.save(tmpfile, format=Image.EXTENSION[ext], quality=VERSION_QUALITY)
+            new_image.save(tmpfile, format=Image.EXTENSION[ext].lower(), quality=VERSION_QUALITY)
 
         try:
             saved_under = fileobject.site.storage.save(fileobject.path, tmpfile)
